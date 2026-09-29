@@ -1,7 +1,7 @@
 FROM vllm/vllm-openai:v0.17.0
 
 COPY vllm_native /opt/minimind-vllm
-RUN python -m pip install --no-deps --no-build-isolation /opt/minimind-vllm
+RUN uv pip install --system --no-deps /opt/minimind-vllm
 
 ENV VLLM_PLUGINS=minimind_vllm
 EXPOSE 8000
